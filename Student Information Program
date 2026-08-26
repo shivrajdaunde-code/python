@@ -1,0 +1,15 @@
+name = input("Enter student name: ")
+age = int(input("Enter age: "))
+course = input("Enter course: ")
+marks = float(input("Enter marks: "))
+
+print("\n--- Student Information ---")
+print("Name   :", name)
+print("Age    :", age)
+print("Course :", course)
+print("Marks  :", marks)
+
+if marks >= 40:
+    print("Result :", "Pass")
+else:
+    print("Result :", "Fail")
