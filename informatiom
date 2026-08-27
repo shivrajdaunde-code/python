@@ -1,0 +1,24 @@
+class Person:
+    def __init__(self, name, age):
+        self.name = name
+        self.age = age
+
+    def introduce(self):
+        print(f"Hello, my name is {self.name}.")
+        print(f"I am {self.age} years old.")
+
+    def is_adult(self):
+        return self.age >= 18
+
+
+name = input("Enter your name: ")
+age = int(input("Enter your age: "))
+
+person = Person(name, age)
+
+person.introduce()
+
+if person.is_adult():
+    print(f"{person.name} is an adult.")
+else:
+    print(f"{person.name} is not an adult.")
