@@ -1,0 +1,48 @@
+class Node:
+    def _init_(self, data):
+        self.data = data
+        self.next = None
+
+
+node1 = Node(100)
+node2 = Node(200)
+node3 = Node(300)
+node4 = Node(400)
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+
+
+# Delete operation at beginning
+node1 = node1.next
+
+
+# Delete operation at end
+current = node1
+
+while current.next.next is not None:
+    current = current.next
+
+current.next = None
+
+
+# Delete at specific position
+# Delete the node containing 300
+current = node1
+
+while current.next is not None and current.next.data != 300:
+    current = current.next
+
+if current.next is not None:
+    current.next = current.next.next
+
+
+# Display the linked list
+current = node1
+
+while current is not None:
+    print(current.data, end=" -> ")
+    current = current.next
+
+print("None")
