@@ -1,0 +1,39 @@
+class Node:
+    def _init_(self,data):
+        self.data = data
+        self.next = None
+
+node1 = Node(10)
+node2 = Node(20)
+node3 = Node(30)
+node4 = Node(40)
+
+node1.next = node2
+node2.next = node3
+node3.next = node4
+
+#inserting at beginning
+new_node=Node(0)
+new_node.next=node1
+node1=new_node
+
+#insetion at end 
+new_node=Node(50)
+current=node1
+while current.next is not None:
+  current=current.next
+current.next=new_node
+
+#insetion at specific position
+new_node=Node(70)
+current=node1
+while current is not None and current.data !=20:
+    current=current.next
+new_node.next=current.next
+current.next=new_node
+
+current=node1
+while current is not None:
+    print(current.data, end=" -> ")
+    current = current.next
+print("None")
