@@ -1,0 +1,25 @@
+arr = [10, 20, 30, 40, 50]
+
+print(arr[0])      
+print(arr[2])      
+
+for i in range(len(arr)):
+    print(arr[i])
+
+for x in arr:
+    print(x)
+
+# Updating
+arr[2] = 100
+print(arr)
+
+# Inserting
+arr.append(60)         
+arr.insert(1, 15)       
+
+# Deleting
+arr.pop()               
+arr.pop(2)              
+arr.remove(20)          
+
+print(arr)
