@@ -1,0 +1,114 @@
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+
+class CircularLinkedList:
+    def __init__(self):
+        self.head = None
+
+    def insert_at_end(self, data):
+        new_node = Node(data)
+
+        if not self.head:
+            self.head = new_node
+            new_node.next = self.head
+            return
+
+        curr = self.head
+
+        while curr.next != self.head:
+            curr = curr.next
+
+        curr.next = new_node
+        new_node.next = self.head
+
+    def insert_at_beginning(self, data):
+        new_node = Node(data)
+
+        if not self.head:
+            self.head = new_node
+            new_node.next = self.head
+            return
+
+        curr = self.head
+
+        while curr.next != self.head:
+            curr = curr.next
+
+        new_node.next = self.head
+        curr.next = new_node
+        self.head = new_node
+
+    def delete_node(self, key):
+        if not self.head:
+            return False
+
+        curr = self.head
+        prev = None
+
+        while True:
+            if curr.data == key:
+
+                # Only one node in the list
+                if curr.next == self.head and curr == self.head:
+                    self.head = None
+
+                # Deleting the head node
+                elif curr == self.head:
+                    tail = self.head
+
+                    while tail.next != self.head:
+                        tail = tail.next
+
+                    self.head = self.head.next
+                    tail.next = self.head
+
+                # Deleting another node
+                else:
+                    prev.next = curr.next
+
+                return True
+
+            prev = curr
+            curr = curr.next
+
+            if curr == self.head:
+                break
+
+        return False
+
+    def display(self):
+        if not self.head:
+            return "Empty"
+
+        result = []
+        curr = self.head
+
+        while True:
+            result.append(str(curr.data))
+            curr = curr.next
+
+            if curr == self.head:
+                break
+
+        return " -> ".join(result) + " -> (Head)"
+
+
+# Example usage
+cll = CircularLinkedList()
+
+cll.insert_at_end(10)
+cll.insert_at_end(20)
+cll.insert_at_end(30)
+
+cll.insert_at_beginning(5)
+
+print("Circular Linked List:")
+print(cll.display())
+
+cll.delete_node(20)
+
+print("After deleting 20:")
+print(cll.display())
