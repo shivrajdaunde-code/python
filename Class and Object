@@ -1,0 +1,7 @@
+class Student:
+    def display(self):
+        print("Name: Shivraj")
+        print("Branch: AI & DS")
+
+student = Student()
+student.display()
