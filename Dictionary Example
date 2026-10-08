@@ -1,0 +1,7 @@
+student = {
+    "name": "Shivraj",
+    "age": 20,
+    "branch": "AI & DS"
+}
+
+print(student)
