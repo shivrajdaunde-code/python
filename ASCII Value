@@ -1,0 +1,3 @@
+ch = input("Enter character: ")
+
+print("ASCII =", ord(ch))
